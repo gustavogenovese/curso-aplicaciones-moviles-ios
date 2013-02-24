@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bhl-6V-t6Z">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller - Lugares-->
+        <scene sceneID="rEV-mN-IIF">
+            <objects>
+                <tableViewController id="6gD-fX-fL7" customClass="ViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="w8J-eQ-C82">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Lmw-9v-bCl" style="IBUITableViewCellStyleDefault" id="5g6-Xj-RWh">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-9v-bCl">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Lugares" id="ahJ-Qs-VQd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="BHQ-2n-Haa">
+                            <connections>
+                                <segue destination="8u8-i1-aQk" kind="push" id="Uba-D3-7Ov"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="nef-bi-8V2">
+                            <connections>
+                                <action selector="refresh:" destination="6gD-fX-fL7" id="VaB-G4-tUW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Qx-I0-zSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76" y="-9"/>
+        </scene>
+        <!--Nuevo Lugar Controller - Nuevo lugar-->
+        <scene sceneID="M87-8E-Jy9">
+            <objects>
+                <viewController id="8u8-i1-aQk" customClass="NuevoLugarController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ivu-af-3gM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lugar" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="35U-dD-WxK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="gH9-rn-xJM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e0p-QI-QoR">
+                                <connections>
+                                    <action selector="guardarFechaChanged:" destination="8u8-i1-aQk" eventType="valueChanged" id="V33-GK-SKn"/>
+                                </connections>
+                            </switch>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="6pe-X2-KnT">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="2Cb-yH-RFi"/>
+                                    <constraint firstAttribute="width" constant="276" id="ng9-l0-pN6"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="383090568.219208">
+                                    <!--2013-02-20 22:02:48 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="410266800">
+                                    <!--2014-01-01 11:00:00 +0000-->
+                                </date>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <data key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</data>
+                                </timeZone>
+                            </datePicker>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Yy-qC-fj6">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="244" id="Pbp-sQ-ZWc"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="35U-dD-WxK" firstAttribute="leading" secondItem="Ivu-af-3gM" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OmW-1H-Juf"/>
+                            <constraint firstItem="e0p-QI-QoR" firstAttribute="leading" secondItem="35U-dD-WxK" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="SSg-Me-ken"/>
+                            <constraint firstItem="7Yy-qC-fj6" firstAttribute="leading" secondItem="Ivu-af-3gM" secondAttribute="leading" type="default" id="cU9-rR-wGI"/>
+                            <constraint firstItem="7Yy-qC-fj6" firstAttribute="top" secondItem="35U-dD-WxK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kOI-Be-h9s"/>
+                            <constraint firstItem="7Yy-qC-fj6" firstAttribute="top" secondItem="e0p-QI-QoR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lzu-Fa-CB4"/>
+                            <constraint firstAttribute="trailing" secondItem="6pe-X2-KnT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="mHo-ko-eYA"/>
+                            <constraint firstItem="35U-dD-WxK" firstAttribute="top" secondItem="Ivu-af-3gM" secondAttribute="top" constant="5" id="ojQ-nq-q6v"/>
+                            <constraint firstItem="6pe-X2-KnT" firstAttribute="bottom" secondItem="Ivu-af-3gM" secondAttribute="bottom" type="default" id="sbo-kr-fxv"/>
+                            <constraint firstItem="7Yy-qC-fj6" firstAttribute="trailing" secondItem="Ivu-af-3gM" secondAttribute="trailing" type="default" id="uvj-9J-r6H"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nuevo lugar" id="AQO-iL-SSx">
+                        <barButtonItem key="backBarButtonItem" title="Cancelar" id="zug-lA-goO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dng-aK-fKi">
+                            <connections>
+                                <action selector="guardarLugar:" destination="8u8-i1-aQk" id="X1c-Ns-txG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="fechaDatePicker" destination="6pe-X2-KnT" id="8mv-b5-YZo"/>
+                        <outlet property="guardarFecha" destination="e0p-QI-QoR" id="BIA-2t-ZaI"/>
+                        <outlet property="lugarTextfield" destination="35U-dD-WxK" id="Cwg-p1-B6J"/>
+                        <outlet property="mapaLugar" destination="7Yy-qC-fj6" id="a0F-Yg-nzJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pVP-Ad-1Cu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="431" y="-9"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jHq-Ki-n6e">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Bhl-6V-t6Z" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G1J-l7-UCJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6gD-fX-fL7" kind="relationship" relationship="rootViewController" id="Com-s3-LOH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9P-VU-PSr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610" y="-9"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NuevoLugarController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NuevoLugarController.h"/>
+            <relationships>
+                <relationship kind="action" name="editingEnded:"/>
+                <relationship kind="action" name="guardarFechaChanged:"/>
+                <relationship kind="action" name="guardarLugar:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="fechaDatePicker" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="guardarFecha" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="lugarTextfield" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="mapaLugar" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="refresh:"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
