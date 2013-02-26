@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
     _lugares = [[ExpertoLugares sharedInstance] lugares];
 }
 
@@ -50,7 +51,7 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Lugar* lugar = [[[ExpertoLugares sharedInstance] lugares] objectAtIndex:[indexPath row]];
+    Lugar* lugar =[_lugares objectAtIndex:[indexPath row]];
     cell.textLabel.text = lugar.nombre;
 
     return cell;
@@ -71,7 +72,10 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        //[tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        UITableViewCell* celda = [tableView cellForRowAtIndexPath:indexPath];
+        NSString* nombreLugar = celda.textLabel.text;
+        [[ExpertoLugares sharedInstance] eliminarLugarConNombre:nombreLugar];
+        [self refresh:nil];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -80,10 +84,11 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"NuevoLugarController"];
+    [self.navigationController pushViewController: myController animated:YES];
 }
+
 - (IBAction)refresh:(id)sender {
     _lugares = [[ExpertoLugares sharedInstance] lugares];
     [self.tableView reloadData];
@@ -98,6 +103,24 @@
 -(void)nuevoLugarAgregado {
     _lugares = [[ExpertoLugares sharedInstance] lugares];
     [self.tableView reloadData];
+    [self crearNotificacion];
+}
+
+- (void)crearNotificacion {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    UILocalNotification *notificacion = [[UILocalNotification alloc] init];
+
+    notificacion.alertBody = @"Nuevo lugar agregado";
+    notificacion.soundName = UILocalNotificationDefaultSoundName;
+    
+    NSDictionary *infoDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Objeto 1", @"Llave 1", @"Objeto 2", @"Llave 2", nil];
+    notificacion.userInfo = infoDict;
+    
+    NSDate *ahora = [NSDate date];
+    notificacion.fireDate = ahora;
+    ahora = [ahora dateByAddingTimeInterval:5];
+    [[UIApplication sharedApplication] scheduleLocalNotification:notificacion];
 }
 
 @end

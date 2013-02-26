@@ -19,4 +19,6 @@
 
 -(NSArray*) lugares;
 
+-(void) eliminarLugarConNombre: (NSString*) nombre;
+
 @end

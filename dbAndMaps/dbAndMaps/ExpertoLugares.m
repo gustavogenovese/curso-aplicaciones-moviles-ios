@@ -46,7 +46,10 @@
     }
 }
 
--(void)guardarLugarConNombre:(NSString *)nombre Longitud:(float)longitud Latitud:(float)latitud Fecha:(NSDate *)fecha {
+-(void)guardarLugarConNombre:(NSString *)nombre
+                    Longitud:(float)longitud
+                     Latitud:(float)latitud
+                       Fecha:(NSDate *)fecha {
     Lugar* lugar = [NSEntityDescription insertNewObjectForEntityForName:@"Lugar"
                                                  inManagedObjectContext:self.context];
     lugar.nombre = nombre;
@@ -55,7 +58,7 @@
     lugar.fecha = fecha;
     NSError *error = nil;
     if (![_context save:&error]){
-        //manejar el error
+        NSLog(@"Error al guardar un lugar: %@", [error description]);
     }
 }
 
@@ -74,4 +77,23 @@
     NSArray* todosLosLugares = [_context executeFetchRequest:req error:&error];
     return todosLosLugares;
 }
+
+-(void)eliminarLugarConNombre:(NSString *)nombre {
+    NSEntityDescription* entidad = [NSEntityDescription entityForName:@"Lugar"
+                                               inManagedObjectContext:_context];
+
+    NSFetchRequest* req = [[NSFetchRequest alloc]init];
+    [req setEntity:entidad];
+    
+    NSPredicate* predicado = [NSPredicate
+                              predicateWithFormat:@"self.nombre == %@", nombre];
+    [req setPredicate:predicado];
+    
+    NSError* error = nil;
+    NSArray* todosLosLugares = [_context executeFetchRequest:req error:&error];
+    for (Lugar* lugar in todosLosLugares) {
+        [_context deleteObject:lugar];
+    }
+}
+
 @end

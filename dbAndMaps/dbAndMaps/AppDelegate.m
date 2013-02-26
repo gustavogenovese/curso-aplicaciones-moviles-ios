@@ -118,4 +118,10 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Informacion" message: notification.alertBody delegate:nil cancelButtonTitle:@"Cerrar" otherButtonTitles: nil];
+    [alert show];
+
+    NSLog(@"AppDelegate didReceiveLocalNotification %@", notification.userInfo);
+}
 @end
