@@ -1,5 +1,3 @@
-/dbAndMaps/dbAndMaps.xcodeproj/project.xcworkspace/xcuserdata/
-/Calculadora/Calculadora.xcodeproj/project.xcworkspace/xcuserdata/
-/HolaMundo/HolaMundo.xcodeproj/project.xcworkspace/xcuserdata
-/WebBrowser/WebBrowser.xcodeproj/project.xcworkspace/xcuserdata
-/WebBrowserUniversal/WebBrowserUniversal.xcodeproj/project.xcworkspace/xcuserdata
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
