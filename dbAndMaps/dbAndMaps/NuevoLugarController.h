@@ -12,4 +12,6 @@
 
 @interface NuevoLugarController : UIViewController<MKMapViewDelegate, UITextFieldDelegate>
 @property (nonatomic, weak) id<NuevoLugarAgregadoProtocol> listener;
+
+-(void)setLongitudInicial: (double) longitud yLatitud: (double)latitud;
 @end

@@ -57,15 +57,6 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,7 +76,12 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"NuevoLugarController"];
+    NuevoLugarController *myController = [self.storyboard instantiateViewControllerWithIdentifier:@"NuevoLugarController"];
+    
+    Lugar* lugar =[_lugares objectAtIndex:[indexPath row]];
+    
+    [myController setLongitudInicial: [lugar.longitud doubleValue]
+                            yLatitud: [lugar.latitud doubleValue ] ];
     [self.navigationController pushViewController: myController animated:YES];
 }
 

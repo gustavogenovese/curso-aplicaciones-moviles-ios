@@ -9,7 +9,10 @@
 #import "NuevoLugarController.h"
 #import "ExpertoLugares.h"
 
-@interface NuevoLugarController ()
+@interface NuevoLugarController () {
+    double longitudInicial;
+    double latitudInicial;
+}
 @property (weak, nonatomic) IBOutlet UITextField *lugarTextfield;
 @property (weak, nonatomic) IBOutlet MKMapView *mapaLugar;
 @property (weak, nonatomic) IBOutlet UIDatePicker *fechaDatePicker;
@@ -45,8 +48,13 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     CLLocationCoordinate2D annotationCoord;
-    annotationCoord.latitude = -32.9;
-    annotationCoord.longitude = -68.8;
+    if (longitudInicial == 0 && latitudInicial == 0) {
+        annotationCoord.latitude = -32.9;
+        annotationCoord.longitude = -68.8;
+    } else {
+        annotationCoord.longitude = longitudInicial;
+        annotationCoord.latitude = latitudInicial;
+    }
     self.mapaLugar.centerCoordinate = annotationCoord;
 }
 
@@ -95,11 +103,16 @@
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     NSLog(@"Coordenadas %f, %f", userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude);
-    mapView.centerCoordinate = userLocation.location.coordinate;
+    //mapView.centerCoordinate = userLocation.location.coordinate;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
+}
+
+-(void)setLongitudInicial:(double)longitud yLatitud:(double)latitud {
+    longitudInicial = longitud;
+    latitudInicial = latitud;
 }
 @end
