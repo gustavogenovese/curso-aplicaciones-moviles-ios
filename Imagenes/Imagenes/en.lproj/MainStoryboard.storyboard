@@ -15,6 +15,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pGX-x1-Sba">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GPt-8y-CzN"/>
+                                    <constraint firstAttribute="width" constant="198" id="sSQ-Iz-HCm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -37,9 +38,6 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5vp-NR-6mj">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="495" id="GF1-d6-f1b"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Imagen" textLabel="gLA-1x-glf" style="IBUITableViewCellStyleDefault" id="Rh1-Sx-GWf">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -56,25 +54,33 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="zdI-oj-yKj" kind="modal" id="r24-Bp-7x5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Xnl-rc-h66"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eh9-L6-Kpm" firstAttribute="baseline" secondItem="pGX-x1-Sba" secondAttribute="baseline" type="default" id="7jd-Y6-dhC"/>
+                            <constraint firstItem="Xnl-rc-h66" firstAttribute="centerY" secondItem="eh9-L6-Kpm" secondAttribute="centerY" type="default" id="BkF-89-wCN"/>
                             <constraint firstItem="pGX-x1-Sba" firstAttribute="bottom" secondItem="eh9-L6-Kpm" secondAttribute="bottom" type="default" id="Bxi-Uj-1II"/>
                             <constraint firstItem="5vp-NR-6mj" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="KU8-I4-LC0"/>
                             <constraint firstItem="eh9-L6-Kpm" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="MlA-5u-5d1"/>
                             <constraint firstItem="eh9-L6-Kpm" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="WSL-NK-3fY"/>
                             <constraint firstItem="pGX-x1-Sba" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="fhf-rK-Kvo"/>
                             <constraint firstAttribute="bottom" secondItem="5vp-NR-6mj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="j51-fo-SP5"/>
-                            <constraint firstItem="eh9-L6-Kpm" firstAttribute="leading" secondItem="pGX-x1-Sba" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="jt1-oQ-S8f"/>
+                            <constraint firstItem="5vp-NR-6mj" firstAttribute="top" secondItem="Xnl-rc-h66" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mMX-dJ-WLP"/>
                             <constraint firstItem="5vp-NR-6mj" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="qFG-U9-BD7"/>
+                            <constraint firstAttribute="trailing" secondItem="Xnl-rc-h66" secondAttribute="trailing" constant="101" id="vG6-Aq-Y4e"/>
                             <constraint firstItem="pGX-x1-Sba" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="wg8-JG-wTC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actividad" destination="Xnl-rc-h66" id="Vni-tK-2P6"/>
+                        <outlet property="botonBuscar" destination="eh9-L6-Kpm" id="ceG-PA-IOA"/>
                         <outlet property="tableView" destination="5vp-NR-6mj" id="AcZ-5v-hFt"/>
                         <outlet property="textoBuscar" destination="pGX-x1-Sba" id="X2i-JK-E6D"/>
                     </connections>
@@ -82,6 +88,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="386" y="-25"/>
+        </scene>
+        <!--Visor Imagen Controller-->
+        <scene sceneID="2iX-Gq-h49">
+            <objects>
+                <viewController id="zdI-oj-yKj" customClass="VisorImagenController" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="s9T-DA-MfI">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="T3R-Tp-VCe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="499" id="8HG-kv-QNZ"/>
+                                </constraints>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAs-QF-c2c">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="reply" id="A32-iv-yuL">
+                                        <connections>
+                                            <action selector="volver:" destination="zdI-oj-yKj" id="F0r-b6-u8S"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="T3R-Tp-VCe" firstAttribute="leading" secondItem="s9T-DA-MfI" secondAttribute="leading" type="default" id="Jk4-Ci-HM6"/>
+                            <constraint firstItem="EAs-QF-c2c" firstAttribute="trailing" secondItem="s9T-DA-MfI" secondAttribute="trailing" type="default" id="csF-qG-Xza"/>
+                            <constraint firstItem="T3R-Tp-VCe" firstAttribute="trailing" secondItem="s9T-DA-MfI" secondAttribute="trailing" type="default" id="ejj-Dg-sjS"/>
+                            <constraint firstItem="EAs-QF-c2c" firstAttribute="leading" secondItem="s9T-DA-MfI" secondAttribute="leading" type="default" id="kdG-YE-qbV"/>
+                            <constraint firstItem="T3R-Tp-VCe" firstAttribute="bottom" secondItem="s9T-DA-MfI" secondAttribute="bottom" type="default" id="oKy-R2-LGY"/>
+                            <constraint firstItem="EAs-QF-c2c" firstAttribute="top" secondItem="s9T-DA-MfI" secondAttribute="top" type="default" id="vUL-An-cPI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="T3R-Tp-VCe" id="guu-bx-MM6"/>
+                        <outlet property="toolbar" destination="EAs-QF-c2c" id="0Yn-cg-TP1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gpu-qc-mWm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856" y="-25"/>
         </scene>
     </scenes>
     <classes>
@@ -92,8 +140,18 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="buscar:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="actividad" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="botonBuscar" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="textoBuscar" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="VisorImagenController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/VisorImagenController.h"/>
+            <relationships>
+                <relationship kind="action" name="volver:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
     </classes>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC6F7EBB16E2BBA50063AFF2 /* VisorImagenController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7EBA16E2BBA50063AFF2 /* VisorImagenController.m */; };
 		EC991E7E16DECCF60074BA98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC991E7D16DECCF60074BA98 /* UIKit.framework */; };
 		EC991E8016DECCF60074BA98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC991E7F16DECCF60074BA98 /* Foundation.framework */; };
 		EC991E8216DECCF60074BA98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC991E8116DECCF60074BA98 /* CoreGraphics.framework */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC6F7EB916E2BBA50063AFF2 /* VisorImagenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisorImagenController.h; sourceTree = "<group>"; };
+		EC6F7EBA16E2BBA50063AFF2 /* VisorImagenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisorImagenController.m; sourceTree = "<group>"; };
 		EC991E7A16DECCF60074BA98 /* Imagenes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Imagenes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC991E7D16DECCF60074BA98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EC991E7F16DECCF60074BA98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,8 @@
 				EC991E9816DECCF60074BA98 /* ViewController.h */,
 				EC991E9916DECCF60074BA98 /* ViewController.m */,
 				EC991E8416DECCF60074BA98 /* Supporting Files */,
+				EC6F7EB916E2BBA50063AFF2 /* VisorImagenController.h */,
+				EC6F7EBA16E2BBA50063AFF2 /* VisorImagenController.m */,
 			);
 			path = Imagenes;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				EC991E8A16DECCF60074BA98 /* main.m in Sources */,
 				EC991E8E16DECCF60074BA98 /* AppDelegate.m in Sources */,
 				EC991E9A16DECCF60074BA98 /* ViewController.m in Sources */,
+				EC6F7EBB16E2BBA50063AFF2 /* VisorImagenController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 				EC991E9F16DECCF60074BA98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
